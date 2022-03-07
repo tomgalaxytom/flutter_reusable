@@ -6,6 +6,7 @@ import 'widgets/asset_image_with_opacity.dart';
 import 'widgets/build_burger_widget.dart';
 import 'widgets/build_rounded_box.dart';
 import 'widgets/build_subject.dart';
+import 'widgets/checkbox.dart';
 import 'widgets/flutter_container.dart';
 import 'widgets/icon_card_widget.dart';
 import 'widgets/image_decoration.dart';
@@ -13,8 +14,13 @@ import 'widgets/listview_with_horizandal.dart';
 import 'widgets/network_image_no_opacity.dart';
 import 'widgets/network_image_widget.dart';
 import 'widgets/network_image_with_opacity.dart';
+import 'widgets/passwordfield.dart';
+import 'widgets/radiobutton.dart';
+import 'widgets/rounded_button.dart';
 import 'widgets/row_wise_build_icon.dart';
 import 'widgets/search_box.dart';
+import 'widgets/statefull_listview_builder.dart';
+import 'widgets/textinputfield.dart';
 
 //use flutter_fade_anim
 
@@ -45,9 +51,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -56,7 +68,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.blue,
         appBar: AppBar(
-          title: Text(title),
+          title: Text(widget.title),
           elevation: 0,
           centerTitle: true,
         ),
@@ -66,93 +78,9 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const AssetImageWithOpacity(
-                  assetimgpath: "assets/images/ssc_image.png",
-                  heading: "Staff Selection Commision",
-                  subheading: "Nungambakkam",
-                ),
-                const SearchBox(),
-                const SizedBox(height: 20.0),
-                const ListViewWithHorizandal(),
-                const SizedBox(height: 20.0),
-                const BuildRoundedBox(),
-                const SizedBox(height: 20.0),
-                const ImageDecoration(
-                  imageurl:
-                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
-                  containerHeight: 200.0,
-                ),
-                const SizedBox(height: 20.0),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: BuildBurgerWidget(
-                    url:
-                        "https://www.oetker.in/Recipe/Recipes/oetker.in/in-en/pizza/image-thumb__52711__RecipeDetailsLightBox/pizza-pollo-arrosto.jpg",
-                    containercolor: Color(0xFFD41111),
-                    imgWidth: 396,
-                    imgHeight: 200,
-                    btext1: "Pizza",
-                    btext2: "Onion with Chees",
-                    btext3: "\$50.00",
-                    btext1textstyle: btext1textstyle,
-                    btext2textstyle: btext2textstyle,
-                    btext3textstyle: btext3textstyle,
-                  ),
-                ),
-                const SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    RowBasedBuildIcon(
-                      icon: Icons.cake,
-                    ),
-                    RowBasedBuildIcon(
-                      icon: Icons.local_drink,
-                    ),
-                    RowBasedBuildIcon(
-                      icon: Icons.icecream,
-                    ),
-                    RowBasedBuildIcon(
-                      icon: Icons.no_meals,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20.0),
-                const Center(
-                  child: IconCardWidget(
-                      cardcolor: Color(0xFF40358a),
-                      cwidth: 160,
-                      cheight: 160,
-                      iconimg: Icons.hail,
-                      iconcolor: Color(0xFF00dcff),
-                      iconsize: 48,
-                      text1: "Stalin",
-                      text2: "Kumbakonam",
-                      textstyleheading: textstyleheading,
-                      textstylesubheading: textstylesubheading),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: BuildSubject(),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                NetworkImageWidget(
-                    networkimgurl:
-                        "https://wallpaperaccess.com/full/2070441.jpg",
-                    width: width,
-                    height: height),
-                NetworkImageWithOpacity(
-                    networkimgurl:
-                        "https://wallpaperaccess.com/full/2070441.jpg",
-                    width: width,
-                    height: height),
-                NetworkImageNoOpcaity(
-                    networkimgurl:
-                        "https://wallpaperaccess.com/full/2070441.jpg",
-                    width: width,
-                    height: height)
+                //RadioButtonWidget(),
+                //CheckboxWidget(),
+                // StatefulListViewBuilder()
               ],
             ),
           ),
@@ -240,7 +168,7 @@ class Info {
 
 class Stalin extends StatelessWidget {
   final List<Info>? info;
-  Stalin({this.info});
+  const Stalin({this.info});
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +178,7 @@ class Stalin extends StatelessWidget {
           return Card(
             child: ListTile(
                 title: Text(info![index].fname!),
-                leading: Icon(Icons.list),
+                leading: const Icon(Icons.list),
                 trailing: Text(
                   info![index].hometown!,
                 )),
