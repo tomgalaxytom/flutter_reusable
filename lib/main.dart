@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_reusable/widgets/sizedbox.dart';
 
 import 'const/constant.dart';
 import 'widgets/asset_image.dart';
 import 'widgets/asset_image_with_opacity.dart';
 import 'widgets/build_burger_widget.dart';
+import 'widgets/build_layout.dart';
 import 'widgets/build_rounded_box.dart';
 import 'widgets/build_subject.dart';
 import 'widgets/checkbox.dart';
@@ -17,8 +19,10 @@ import 'widgets/network_image_with_opacity.dart';
 import 'widgets/passwordfield.dart';
 import 'widgets/radiobutton.dart';
 import 'widgets/rounded_button.dart';
+import 'widgets/row_widget_with_star.dart';
 import 'widgets/row_wise_build_icon.dart';
 import 'widgets/search_box.dart';
+import 'widgets/star_with_column.dart';
 import 'widgets/statefull_listview_builder.dart';
 import 'widgets/textinputfield.dart';
 
@@ -77,10 +81,15 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+              children: const [
                 //RadioButtonWidget(),
                 //CheckboxWidget(),
                 // StatefulListViewBuilder()
+                BuildLayout(),
+                SizedBoxWidget(heightvalue: 10),
+                RowWidgetWithStar(),
+                SizedBoxWidget(heightvalue: 10),
+                ColumnWidget(),
               ],
             ),
           ),

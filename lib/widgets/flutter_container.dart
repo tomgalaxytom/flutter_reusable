@@ -11,16 +11,18 @@ class FlutterContainer extends StatelessWidget {
   final Color bgColor;
   final Color textfontColor;
   final Widget? widget;
+  final double containerheight;
 
-  const FlutterContainer({
-    Key? key,
-    this.text = "Dummy",
-    this.color = appBarTextColor,
-    this.textFontSize = 25,
-    this.bgColor = containerbgColor,
-    this.textfontColor = textColor,
-    this.widget,
-  }) : super(key: key);
+  const FlutterContainer(
+      {Key? key,
+      this.text = "Dummy",
+      this.color = appBarTextColor,
+      this.textFontSize = 25,
+      this.bgColor = containerbgColor,
+      this.textfontColor = textColor,
+      this.widget,
+      this.containerheight = 70.0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +30,8 @@ class FlutterContainer extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: double.infinity,
-        height: 70,
-        //padding: const EdgeInsets.all(24),
+        height: containerheight,
+         padding:EdgeInsets.all(10),
         margin: const EdgeInsets.symmetric(vertical: 5),
         decoration: BoxDecoration(
           color: containerbgColor,
@@ -40,7 +42,9 @@ class FlutterContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
 
-        child: widget != null ? const FlutterRow() : FlutterText(text: text),
+        child: widget != null
+            ? const FlutterRow()
+            : FlutterText(text: text, textFontSize: textFontSize),
       ),
     );
   }

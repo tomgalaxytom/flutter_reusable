@@ -17,16 +17,15 @@ class FlutterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: textFontSize.toDouble(),
-          color: textColor,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2,
-        ),
-        textAlign: TextAlign.center,
-      ),
+      child: Text(text,
+          style: TextStyle(
+            fontSize: textFontSize.toDouble(),
+            color: textColor,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+          ),
+          textAlign: TextAlign.center,
+          softWrap: true),
     );
   }
 }
